@@ -6,7 +6,7 @@ def game_captcha(gt: str, challenge: str):
 
 
 def bbs_captcha(gt: str, challenge: str):
-    res = httpx.get("http://127.0.0.1:9645/pass_nine",
+    res = httpx.get("http://nine:9645/pass_nine",
                     params={'gt': gt, 'challenge': challenge, 'use_v3_model': True, "save_result": False}, timeout=10)
     datas = res.json()['data']
     if datas['result'] == 'success':
