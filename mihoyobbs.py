@@ -86,6 +86,7 @@ class Mihoyobbs:
             return None
         validate = captcha.bbs_captcha(data["data"]["gt"], data["data"]["challenge"])
         if validate is not None:
+            log.info("验证码验证成功")
             check_req = http.post(url=setting.bbs_captcha_verify, headers=self.headers,
                                   json={"geetest_challenge": data["data"]["challenge"],
                                         "geetest_seccode": validate + "|jordan",
